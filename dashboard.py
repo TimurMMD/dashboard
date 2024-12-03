@@ -25,6 +25,8 @@ all_predictions.head()
 # Initialize Dash app with a Bootstrap theme
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.title = "Stock Dashboard"
+# Expose the Flask server to be used with Gunicorn
+server = app.server
 
 # Calculate Top 5 Best and Worst Predictions
 top5_best = all_predictions.nlargest(5, 'predictions')
