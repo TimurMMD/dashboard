@@ -223,7 +223,7 @@ def update_dashboard(ticker, include_sma_clicks, exclude_sma_clicks):
         x=ticker_earnings["date"],
         y=ticker_earnings["EPS_Actual"],
         name="EPS Actual",
-        marker_color=["green" if actual <= est else "red" for actual, est in zip(ticker_earnings["EPS_Actual"], ticker_earnings["EPS_Estimate"])],
+        marker_color=["red" if actual <= est else "green" for actual, est in zip(ticker_earnings["EPS_Actual"], ticker_earnings["EPS_Estimate"])],
     ))
     eps_fig.add_trace(go.Scatter(x=ticker_earnings["date"], y=ticker_earnings["EPS_Estimate"], mode="lines+markers", name="EPS Estimate", marker_color="yellow"))
     eps_fig.update_layout(
